@@ -20,7 +20,7 @@ public class EventService {
     public Event getEventById(Long eventId) {
         Optional<Event> optionalEvent = eventRepository.findById(eventId);
         if(optionalEvent.isPresent()){
-            Event event = (Event) optionalEvent.get();
+            Event event = optionalEvent.get();
             String duration = Interval.getInterval(event.getEventDuration());
             logger.error(duration);
             return event;
